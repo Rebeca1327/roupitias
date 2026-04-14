@@ -1,12 +1,11 @@
-
 * {
   margin: 0;
   padding: 0;
 }
 
-.body{
-    background-color: #ffffff;
-    margin: 0;
+.body {
+  background-color: #ffffff;
+  margin: 0;
 }
 
 
@@ -19,7 +18,7 @@
 }
 
 .top-bar {
-  background-color: #fffaee;
+  background-color: #eceade;
   width: 100%;
 
 }
@@ -31,8 +30,14 @@
 }
 
 .logo-area img {
-  height: 280px; 
+  height: 280px;
   width: auto;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logo-area img:hover{
+  transform: scale(1.1);
 }
 
 .search-area {
@@ -76,10 +81,11 @@
 .icons {
   display: flex;
   gap: 12px;
+  width: auto;
 }
 
 .icons img {
-  width: 20px;
+  width: 40px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -97,7 +103,7 @@
   display: flex;
   justify-content: space-between;
   list-style: none;
-  padding: 12px 0;
+  padding: 10px 0;
 }
 
 .menu-links a {
@@ -113,9 +119,74 @@
   font-weight: bold;
 }
 
-.banner{
+.banner {
+  width: 100%;
   display: flex;
   justify-content: center;
-  height: 100%;
-  gap: 10px;
+  margin-top: 5px;
+}
+
+.banner-img {
+  position: relative;
+  background-image: url('/assets/banner.png');
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px;
+  width: 2000px;
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.titulo-banner {
+  font-weight: bold;
+  width: 300px;
+  font-size: 48px;
+  color: #643e24;
+  max-width: 500px;
+  margin-bottom: 10px;
+}
+
+.texto {
+  font-size: 24px;
+  color: #fffaee;
+  max-width: 500px;
+  line-height: 1.4;
+}
+
+.titulo-banner,
+.texto {
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.1)
+}
+
+.caixa-comprar {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.caixa-comprar button {
+  background-color: #fffaee;
+  color: #a18655;
+  border: none;
+  padding: 25px 90px;
+  font-size: 18px;
+  border-radius: 50px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.caixa-comprar button:hover {
+  background-color: #e6dece;
+  color: #77643f;
+  padding: 25px 95px;
+  font-size: 18px;
+  font-weight: 500;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 }
