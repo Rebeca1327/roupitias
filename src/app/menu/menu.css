@@ -1,14 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.body {
-  background-color: #ffffff;
-  margin: 0;
-}
-
-
 .container {
   max-width: 1200px;
   margin: auto;
@@ -17,10 +6,14 @@
   justify-content: space-between;
 }
 
+.body {
+  background-color: #ffffff;
+  margin: 0;
+}
+
 .top-bar {
   background-color: #eceade;
   width: 100%;
-
 }
 
 .logo-area {
@@ -126,40 +119,57 @@
   margin-top: 5px;
 }
 
-.banner-img {
+.carousel {
   position: relative;
-  background-image: url('/assets/banner.png');
-  border-radius: 2px;
+  width: 100%;
+  height: 85vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   padding: 80px;
-  width: 2000px;
-  height: 600px;
-  background-size: cover;
-  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.35s ease-in-out;
+  z-index: 1;
 }
 
-.titulo-banner {
-  font-weight: bold;
-  width: 300px;
-  font-size: 48px;
-  color: #643e24;
-  max-width: 500px;
-  margin-bottom: 10px;
+/* inactive slides fade out naturally with opacity */
+
+.slide.active {
+  opacity: 1;
+  z-index: 2;
 }
 
-.texto {
-  font-size: 24px;
-  color: #fffaee;
-  max-width: 500px;
-  line-height: 1.4;
+.carousel-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
 }
 
-.titulo-banner,
-.texto {
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.1)
+.carousel-text {
+  position: relative;
+  z-index: 6;
+  padding: 80px;
+  max-width: 600px;
 }
 
 .caixa-comprar {
@@ -167,6 +177,127 @@
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 7;
+  pointer-events: auto;
+}
+
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  color: #333;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.arrow:active {
+  transform: translateY(-50%) translateX(var(--move));
+}
+
+.left-arrow {
+  left: 20px;
+}
+
+.left-arrow:active {
+  --move: -5px;
+}
+
+.right-arrow {
+  right: 20px;
+}
+
+.right-arrow:active {
+  --move: 5px;
+}
+
+.arrow:hover {
+  background-color: transparent;
+}
+
+.left-arrow {
+  left: 20px;
+}
+
+.right-arrow {
+  right: 20px;
+}
+
+.indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.indicator.active {
+  background-color: white;
+}
+
+.indicator:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.titulo-banner {
+  font-weight: bold;
+  width: 300px;
+  font-size: 60px;
+  color: #643e24;
+  max-width: 600px;
+  margin-bottom: 10px;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide:not(.active) .titulo-banner {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.texto {
+  font-size: 30px;
+  color: #fffaee;
+  max-width: 600px;
+  line-height: 1.4;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide:not(.active) .texto {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.titulo-banner,
+.texto {
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+.caixa-comprar {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
 }
 
 .caixa-comprar button {
@@ -190,3 +321,4 @@
   font-weight: 500;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 }
+

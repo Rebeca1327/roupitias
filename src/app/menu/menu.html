@@ -43,12 +43,32 @@
   </nav>
 
   <div class="banner">
-    <div class="banner-img">
-      <p class="titulo-banner">Menos é mais O essencial é ter estilo</p>
-      <p class="texto">pra quem vive a elegância sem esforço!</p>
-      
-      <div class="caixa-comprar">
-      <button class="texto-comprar">Comprar</button>
+    <div class="carousel" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+      <ng-container *ngFor="let slide of slides; let i = index">
+        <div class="slide" [class.active]="i === currentIndex" [style.background-image]="'url(' + slide.url + ')'">
+        </div>
+      </ng-container>
+
+      <div class="carousel-content">
+        <div class="carousel-text">
+          <p class="titulo-banner">{{ slides[currentIndex].titulo }}</p>
+          <p class="texto">{{ slides[currentIndex].texto }}</p>
+        </div>
+        <div class="caixa-comprar">
+          <button class="texto-comprar">Comprar</button>
+        </div>
+      </div>
+
+      <!-- Setas -->
+      <button class="arrow left-arrow" (click)="prevSlide()">&#10094;</button>
+      <button class="arrow right-arrow" (click)="nextSlide()">&#10095;</button>
+
+      <!-- Indicadores -->
+      <div class="indicators">
+        <span *ngFor="let slide of slides; let i = index" 
+              class="indicator" 
+              [class.active]="i === currentIndex" 
+              (click)="goToSlide(i)"></span>
       </div>
     </div>
   </div>
