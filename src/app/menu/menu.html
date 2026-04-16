@@ -59,11 +59,9 @@
         </div>
       </div>
 
-      <!-- Setas -->
       <button class="arrow left-arrow" (click)="prevSlide()">&#10094;</button>
       <button class="arrow right-arrow" (click)="nextSlide()">&#10095;</button>
 
-      <!-- Indicadores -->
       <div class="indicators">
         <span *ngFor="let slide of slides; let i = index" 
               class="indicator" 
@@ -72,4 +70,62 @@
       </div>
     </div>
   </div>
+
+  <div class="info-strip-container">
+    <section class="info-strip">
+    <div class="info-card">
+      <div class="info-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 19l-7-7 7-7" />
+          <path d="M19 12H5" />
+        </svg>
+      </div>
+      <div class="info-copy">
+        <p class="info-title">Clique Aqui!</p>
+        <p class="info-description">Para permitir a fatura do cartão e <span>empréstimos</span></p>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2l7 7-7 7-7-7 7-7z" />
+          <path d="M12 9v6" />
+        </svg>
+      </div>
+      <div class="info-copy">
+        <p class="info-title">Solicite seu Empréstimo Pessoal Aqui</p>
+        <p class="info-description">Destaque para <span>Empréstimo</span></p>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 9l6 6 6-6" />
+          <path d="M12 3v12" />
+        </svg>
+      </div>
+      <div class="info-copy">
+        <p class="info-title">Retire em Loja</p>
+        <p class="info-description">com <span>frete grátis</span></p>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 7h18" />
+          <path d="M5 7l5 10h4l5-10" />
+          <path d="M7 7v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" />
+        </svg>
+      </div>
+      <div class="info-copy">
+        <p class="info-title">Trocas e Devoluções</p>
+        <p class="info-description">Compre online e troque na loja física</p>
+      </div>
+    </div>
+    </section>
+  </div>
+
 </header>

@@ -11,23 +11,23 @@ export class Menu implements OnInit, OnDestroy {
   slides = [
     {
       url: '/assets/banner.png',
-      titulo: 'Menos é mais O essencial é ter estilo',
-      texto: 'pra quem vive a elegância sem esforço!'
+      titulo: 'Menos é mais  O essencial é ter estilo',
+      texto: 'Pra quem vive a elegância sem esforço!'
     },
     {
       url: '/assets/banner3.jpg',
-      titulo: 'Novo Banner 3',
-      texto: 'Texto personalizado para o terceiro banner.'
+      titulo: 'Atemporal Essencial Você!',
+      texto: 'Onde a moda encontra seu ritmo'
     },
     {
       url: '/assets/bannerzin2.jpg',
-      titulo: 'Bannerzin 2',
-      texto: 'Descrição para o bannerzin 2.'
+      titulo: 'Estilo que fala antes das palavras',
+      texto: 'A expressão do seu agora!'
     },
     {
       url: '/assets/bannerzin3.jpg',
-      titulo: 'Bannerzin 3',
-      texto: 'Descrição para o bannerzin 3.'
+      titulo: 'Pra quem vive a moda, não a segue.',
+      texto: 'Feita para quem ama conforto e simplicidade.'
     }
   ];
   currentIndex: number = 0;
