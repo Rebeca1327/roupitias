@@ -1,0 +1,52 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Camiseta Premium",
+      "preco": 89.90,
+      "imagem": "assets/products/camiseta-1.jpg",
+      "tamanhos": ["P", "M", "G", "GG"],
+      "descricao": "Camiseta de algodão 100% premium"
+    },
+    {
+      "id": 2,
+      "nome": "Calça Jeans Clássica",
+      "preco": 149.90,
+      "imagem": "assets/products/calca-1.jpg",
+      "tamanhos": ["P", "M", "G", "GG", "GGG"],
+      "descricao": "Calça jeans tradicional e confortável"
+    },
+    {
+      "id": 3,
+      "nome": "Vestido Floral",
+      "preco": 199.90,
+      "imagem": "assets/products/vestido-1.jpg",
+      "tamanhos": ["P", "M", "G"],
+      "descricao": "Vestido com padrão floral elegante"
+    },
+    {
+      "id": 4,
+      "nome": "Jaqueta Social",
+      "preco": 249.90,
+      "imagem": "assets/products/jaqueta-1.jpg",
+      "tamanhos": ["P", "M", "G", "GG"],
+      "descricao": "Jaqueta social em tons escuros"
+    },
+    {
+      "id": 5,
+      "nome": "Shorts Casual",
+      "preco": 69.90,
+      "imagem": "assets/products/shorts-1.jpg",
+      "tamanhos": ["P", "M", "G", "GG"],
+      "descricao": "Shorts casual para o verão"
+    },
+    {
+      "id": 6,
+      "nome": "Blusa de Seda",
+      "preco": 129.90,
+      "imagem": "assets/products/blusa-1.jpg",
+      "tamanhos": ["P", "M", "G"],
+      "descricao": "Blusa em seda natural e macia"
+    }
+  ]
+}

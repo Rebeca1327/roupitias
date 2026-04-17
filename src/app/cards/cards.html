@@ -1,0 +1,81 @@
+<section id="novidades" class="novidades-section">
+  <div class="container">
+    <h2 class="section-title">Novidades</h2>
+    <p class="section-subtitle">Confira nossas peças mais recentes</p>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-container" #carouselNovidades>
+        <div class="product-card" *ngFor="let produto of produtos">
+
+          <div class="product-image-wrapper">
+            <img [src]="produto.imagem" [alt]="produto.nome" class="product-image" />
+          </div>
+
+          <div class="product-info">
+            <h3 class="product-name">{{ produto.nome }}</h3>
+            <p class="product-description">{{ produto.descricao }}</p>
+
+            <div class="product-price">
+              <span class="price">R$ {{ produto.preco.toFixed(2) }}</span>
+            </div>
+
+            <button class="buy-button" (click)="comprar(produto)">
+              Comprar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Setas de navegação -->
+      <div class="carousel-navigation">
+        <button class="nav-arrow nav-left" (click)="scrollLeft('novidades')" aria-label="Anterior">
+          ←
+        </button>
+        <button class="nav-arrow nav-right" (click)="scrollRight('novidades')" aria-label="Próximo">
+          →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="masculino" class="novidades-section">
+  <div class="container">
+    <h2 class="section-title">Masculino</h2>
+    <p class="section-subtitle">Coleção completa para homens</p>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-container" #carouselMasculino>
+        <div class="product-card" *ngFor="let produto of produtosMasculinos">
+
+          <div class="product-image-wrapper">
+            <img [src]="produto.imagem" [alt]="produto.nome" class="product-image" />
+          </div>
+
+          <div class="product-info">
+            <h3 class="product-name">{{ produto.nome }}</h3>
+            <p class="product-description">{{ produto.descricao }}</p>
+
+            <div class="product-price">
+              <span class="price">R$ {{ produto.preco.toFixed(2) }}</span>
+            </div>
+
+            <button class="buy-button" (click)="comprar(produto)">
+              Comprar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Setas de navegação -->
+      <div class="carousel-navigation">
+        <button class="nav-arrow nav-left" (click)="scrollLeft('masculino')" aria-label="Anterior">
+          ←
+        </button>
+        <button class="nav-arrow nav-right" (click)="scrollRight('masculino')" aria-label="Próximo">
+          →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

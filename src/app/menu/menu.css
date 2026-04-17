@@ -388,7 +388,8 @@ body {
 .info-strip-container {
   width: 100%;
   background-color: #f7f7f5;
-  padding: 24px 0;
+  padding: 32px 0;
+  margin-bottom: 20px;
 }
 
 .info-strip {
