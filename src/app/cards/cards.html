@@ -5,15 +5,36 @@
 
     <div class="carousel-wrapper">
       <div class="carousel-container" #carouselNovidades>
+
         <div class="product-card" *ngFor="let produto of produtos">
 
           <div class="product-image-wrapper">
+
             <img [src]="produto.imagem" [alt]="produto.nome" class="product-image" />
+
+            <button
+              class="favorite-btn"
+              [class.favorited]="isFavorito(produto)"
+              (click)="toggleFavorito(produto); $event.stopPropagation()">
+              ❤︎
+            </button>
+
           </div>
 
           <div class="product-info">
+
             <h3 class="product-name">{{ produto.nome }}</h3>
+
             <p class="product-description">{{ produto.descricao }}</p>
+
+            <!-- TAMANHOS (AGORA NO LUGAR CERTO) -->
+            <div class="size-selector">
+              <button class="size-btn">PP</button>
+              <button class="size-btn">P</button>
+              <button class="size-btn">M</button>
+              <button class="size-btn">G</button>
+              <button class="size-btn">GG</button>
+            </div>
 
             <div class="product-price">
               <span class="price">R$ {{ produto.preco.toFixed(2) }}</span>
@@ -22,18 +43,16 @@
             <button class="buy-button" (click)="comprar(produto)">
               Comprar
             </button>
+
           </div>
+
         </div>
+
       </div>
 
-      <!-- Setas de navegação -->
       <div class="carousel-navigation">
-        <button class="nav-arrow nav-left" (click)="scrollLeft('novidades')" aria-label="Anterior">
-          ←
-        </button>
-        <button class="nav-arrow nav-right" (click)="scrollRight('novidades')" aria-label="Próximo">
-          →
-        </button>
+        <button class="nav-arrow nav-left" (click)="scrollLeft('novidades')">←</button>
+        <button class="nav-arrow nav-right" (click)="scrollRight('novidades')">→</button>
       </div>
     </div>
   </div>
@@ -46,15 +65,36 @@
 
     <div class="carousel-wrapper">
       <div class="carousel-container" #carouselMasculino>
+
         <div class="product-card" *ngFor="let produto of produtosMasculinos">
 
           <div class="product-image-wrapper">
+
             <img [src]="produto.imagem" [alt]="produto.nome" class="product-image" />
+
+            <button
+              class="favorite-btn"
+              [class.favorited]="isFavorito(produto)"
+              (click)="toggleFavorito(produto); $event.stopPropagation()">
+              ❤︎
+            </button>
+
           </div>
 
           <div class="product-info">
+
             <h3 class="product-name">{{ produto.nome }}</h3>
+
             <p class="product-description">{{ produto.descricao }}</p>
+
+            <!-- TAMANHOS (AGORA NO LUGAR CERTO) -->
+            <div class="size-selector">
+              <button class="size-btn">PP</button>
+              <button class="size-btn">P</button>
+              <button class="size-btn">M</button>
+              <button class="size-btn">G</button>
+              <button class="size-btn">GG</button>
+            </div>
 
             <div class="product-price">
               <span class="price">R$ {{ produto.preco.toFixed(2) }}</span>
@@ -63,18 +103,16 @@
             <button class="buy-button" (click)="comprar(produto)">
               Comprar
             </button>
+
           </div>
+
         </div>
+
       </div>
 
-      <!-- Setas de navegação -->
       <div class="carousel-navigation">
-        <button class="nav-arrow nav-left" (click)="scrollLeft('masculino')" aria-label="Anterior">
-          ←
-        </button>
-        <button class="nav-arrow nav-right" (click)="scrollRight('masculino')" aria-label="Próximo">
-          →
-        </button>
+        <button class="nav-arrow nav-left" (click)="scrollLeft('masculino')">←</button>
+        <button class="nav-arrow nav-right" (click)="scrollRight('masculino')">→</button>
       </div>
     </div>
   </div>

@@ -10,62 +10,83 @@ interface Produto {
 
 @Component({
   selector: 'app-cards',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './cards.html',
   styleUrl: './cards.css',
 })
 export class Cards {
+
   @ViewChild('carouselNovidades', { static: false }) carouselNovidades!: ElementRef;
   @ViewChild('carouselMasculino', { static: false }) carouselMasculino!: ElementRef;
+
+  // ❤️ FAVORITOS
+  favoritos: Produto[] = [];
+
+  toggleFavorito(produto: Produto): void {
+    const index = this.favoritos.findIndex(p => p.nome === produto.nome);
+
+    if (index === -1) {
+      this.favoritos.push(produto);
+    } else {
+      this.favoritos.splice(index, 1);
+    }
+  }
+
+  isFavorito(produto: Produto): boolean {
+    return this.favoritos.some(p => p.nome === produto.nome);
+  }
+
+  // 🛍️ PRODUTOS
   produtos: Produto[] = [
     {
-       nome: 'Casual Contrast',
-    preco: 189.90,
-    imagem: 'assets/roupa 1.webp',
-    descricao: 'Look moderno com contraste leve e elegante',
-  },
-  {
-    nome: 'Ivory Layering',
-    preco: 199.90,
-    imagem: 'assets/roupa 2.webp',
-    descricao: 'Camadas sofisticadas em tons claros',
-  },
-  {
-    nome: 'Sage Serenity',
-    preco: 179.90,
-    imagem: 'assets/roupa 3.webp',
-    descricao: 'Vestido fluido com toque natural e leve',
-  },
-  {
-    nome: 'Pale Sun Mini',
-    preco: 169.90,
-    imagem: 'assets/roupa 4.webp',
-    descricao: 'Visual clean com ar moderno e delicado',
-  },
-  {
-    nome: 'Golden Sands Maxi',
-    preco: 229.90,
-    imagem: 'assets/roupa 5.webp',
-    descricao: 'Vestido leve em tons terrosos elegantes',
-  },
-  {
-    nome: 'Coastal Stripes',
-    preco: 209.90,
-    imagem: 'assets/roupa 6.webp',
-    descricao: 'Estilo casual com inspiração náutica',
-  },
-  {
-    nome: 'Mocha Arlequim',
-    preco: 289.90,
-    imagem: 'assets/roupa 7.jpg',
-    descricao: 'Conjunto moderno com tons quentes e sofisticados',
-  },
-  {
-    nome: 'Olive & Denim',
-    preco: 179.90,
-    imagem: 'assets/roupa 8.jpg',
-    descricao: 'Combinação versátil para o dia a dia',
-  },
+      nome: 'Casual Contrast',
+      preco: 189.90,
+      imagem: 'assets/roupa 1.webp',
+      descricao: 'Look moderno com contraste leve e elegante',
+    },
+    {
+      nome: 'Ivory Layering',
+      preco: 199.90,
+      imagem: 'assets/roupa 2.webp',
+      descricao: 'Camadas sofisticadas em tons claros',
+    },
+    {
+      nome: 'Sage Serenity',
+      preco: 179.90,
+      imagem: 'assets/roupa 3.webp',
+      descricao: 'Vestido fluido com toque natural e leve',
+    },
+    {
+      nome: 'Pale Sun Mini',
+      preco: 169.90,
+      imagem: 'assets/roupa 4.webp',
+      descricao: 'Visual clean com ar moderno e delicado',
+    },
+    {
+      nome: 'Golden Sands Maxi',
+      preco: 229.90,
+      imagem: 'assets/roupa 5.webp',
+      descricao: 'Vestido leve em tons terrosos elegantes',
+    },
+    {
+      nome: 'Coastal Stripes',
+      preco: 209.90,
+      imagem: 'assets/roupa 6.webp',
+      descricao: 'Estilo casual com inspiração náutica',
+    },
+    {
+      nome: 'Mocha Arlequim',
+      preco: 289.90,
+      imagem: 'assets/roupa 7.jpg',
+      descricao: 'Conjunto moderno com tons quentes e sofisticados',
+    },
+    {
+      nome: 'Olive & Denim',
+      preco: 179.90,
+      imagem: 'assets/roupa 8.jpg',
+      descricao: 'Combinação versátil para o dia a dia',
+    },
   ];
 
   produtosMasculinos: Produto[] = [
@@ -119,21 +140,27 @@ export class Cards {
     },
   ];
 
+  // 🛒 COMPRA
   comprar(produto: Produto): void {
     alert(`"${produto.nome}" adicionado ao carrinho!`);
   }
 
+  // ⬅️➡️ CARROSSEL
   scrollLeft(carousel: string): void {
-    const element = carousel === 'novidades' ? this.carouselNovidades : this.carouselMasculino;
-    if (element) {
-      element.nativeElement.scrollBy({ left: -300, behavior: 'smooth' });
-    }
+    const element =
+      carousel === 'novidades'
+        ? this.carouselNovidades
+        : this.carouselMasculino;
+
+    element?.nativeElement.scrollBy({ left: -300, behavior: 'smooth' });
   }
 
   scrollRight(carousel: string): void {
-    const element = carousel === 'novidades' ? this.carouselNovidades : this.carouselMasculino;
-    if (element) {
-      element.nativeElement.scrollBy({ left: 300, behavior: 'smooth' });
-    }
+    const element =
+      carousel === 'novidades'
+        ? this.carouselNovidades
+        : this.carouselMasculino;
+
+    element?.nativeElement.scrollBy({ left: 300, behavior: 'smooth' });
   }
 }
